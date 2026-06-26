@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;600;700&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{background:#221C17;font-family:'IBM Plex Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+input,textarea,button{font-family:inherit;color:inherit;}
+textarea{resize:none;}
+button{cursor:pointer;border:none;background:none;}
+@keyframes cfFade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes cfPop{0%{transform:scale(.7);opacity:0}60%{transform:scale(1.06)}100%{transform:scale(1);opacity:1}}
+</style>
+</helmet>
+<template id="__bundler_thumbnail" data-bg-color="#2A6E66">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#2A6E66"/>
+    <path d="M250 440c0-150 700-150 700 0" fill="none" stroke="#EAF1F0" stroke-width="16"/>
+    <line x1="250" y1="440" x2="250" y2="510" stroke="#EAF1F0" stroke-width="16"/>
+    <line x1="950" y1="440" x2="950" y2="510" stroke="#EAF1F0" stroke-width="16"/>
+    <circle cx="520" cy="478" r="22" fill="#EAF1F0"/>
+    <circle cx="662" cy="486" r="15" fill="#EAF1F0"/>
+    <text x="600" y="610" font-family="Georgia,serif" font-size="64" font-weight="700" fill="#F3ECE0" text-anchor="middle">Restoring Men</text>
+    <text x="600" y="670" font-family="monospace" font-size="28" letter-spacing="6" fill="#EAF1F0" text-anchor="middle">PILLAR 2</text>
+  </svg>
+</template>
+<div style="max-width:430px;margin:0 auto;min-height:100vh;background:#F3ECE0;display:flex;flex-direction:column;color:#2A2320;position:relative;box-shadow:0 0 60px rgba(0,0,0,.35);">
+
+  <div style="position:sticky;top:0;z-index:30;background:rgba(243,236,224,.93);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid #E4DACB;">
+    <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:13px 18px;">
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;color:#B85C38;font-weight:600;">CHILDREN'S FUTURES</div>
+          <div style="font-family:'Bitter',serif;font-size:17px;font-weight:700;margin-top:1px;">Restoring Men</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:7px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#6F6358;background:#FBF6EE;border:1px solid #E4DACB;border-radius:999px;padding:6px 11px;">
+          <span style="width:7px;height:7px;border-radius:999px;background:#B85C38;"></span>{{ doneCount }} / 5 done
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isStep }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex;align-items:center;gap:13px;padding:12px 16px;">
+        <button onClick="{{ back }}" style="flex-shrink:0;width:38px;height:38px;border-radius:999px;background:#FBF6EE;border:1px solid #E4DACB;display:flex;align-items:center;justify-content:center;">
+          <svg width="9" height="16" viewBox="0 0 9 16" fill="none"><path d="M7.5 1.5L1.5 8l6 6.5" stroke="#7A6E63" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;color:#9A4A2C;font-weight:600;">{{ stepKicker }}</div>
+          <div style="font-family:'Bitter',serif;font-size:16px;font-weight:700;margin-top:1px;">{{ stepTitle }}</div>
+        </div>
+      </div>
+    </sc-if>
+  </div>
+
+  <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+    <div>
+
+      <div style="padding:20px 20px 4px;">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:#2A6E66;font-weight:600;">PILLAR 2 · BUILD THE RELATIONSHIP</div>
+        <h1 style="font-family:'Bitter',serif;font-size:28px;line-height:1.13;font-weight:700;margin:9px 0 0;letter-spacing:-.01em;text-wrap:balance;">Win-Win Fathering: It's Not Only About You</h1>
+        <div style="margin-top:11px;color:#6B6057;font-size:14.5px;line-height:1.5;">Week 4 — stop keeping score and start building agreements that work for everyone.</div>
+        <div style="display:flex;flex-wrap:wrap;gap:7px;margin-top:14px;">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#6F6358;background:#FBF6EE;border:1px solid #E4DACB;border-radius:999px;padding:5px 10px;">HYBRID</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#6F6358;background:#FBF6EE;border:1px solid #E4DACB;border-radius:999px;padding:5px 10px;">5 STEPS</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#6F6358;background:#FBF6EE;border:1px solid #E4DACB;border-radius:999px;padding:5px 10px;">~45 MIN</span>
+        </div>
+      </div>
+
+      <div style="margin:18px 20px 0;background:#FFFDF9;border:1px solid #ECE3D5;border-radius:18px;padding:16px;display:flex;align-items:center;gap:16px;">
+        <div style="position:relative;flex-shrink:0;width:84px;height:84px;">
+          <svg width="84" height="84" viewBox="0 0 120 120">
+            <circle cx="60" cy="60" r="52" fill="none" stroke="#EBE1D2" stroke-width="11"/>
+            <circle cx="60" cy="60" r="52" fill="none" stroke="#B85C38" stroke-width="11" stroke-linecap="round" stroke-dasharray="{{ ringDash }}" stroke-dashoffset="{{ ringOffset }}" transform="rotate(-90 60 60)"/>
+          </svg>
+          <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+            <span style="font-family:'Bitter',serif;font-size:24px;font-weight:700;line-height:1;">{{ doneCount }}</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:#9A8C7E;margin-top:2px;">OF 5</span>
+          </div>
+        </div>
+        <div style="flex:1;">
+          <sc-if value="{{ moduleComplete }}" hint-placeholder-val="{{ false }}">
+            <div style="font-family:'Bitter',serif;font-size:16px;font-weight:700;color:#5E6B43;">Module complete</div>
+            <div style="font-size:13px;color:#6B6057;line-height:1.45;margin-top:3px;">Week 4 of the Bridge Badge is in the bank. Keep going next week.</div>
+          </sc-if>
+          <sc-if value="{{ modulePending }}" hint-placeholder-val="{{ true }}">
+            <div style="font-family:'Bitter',serif;font-size:16px;font-weight:700;">Your week, step by step</div>
+            <div style="font-size:13px;color:#6B6057;line-height:1.45;margin-top:3px;">Work through it in any order. Finish all five to lock in Week 4.</div>
+          </sc-if>
+        </div>
+      </div>
+
+      <div style="padding:22px 20px 0;">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;color:#9A8C7E;font-weight:600;">YOUR PATH THIS WEEK</div>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-top:12px;">
+          <sc-for list="{{ steps }}" as="step" hint-placeholder-count="5">
+            <button onClick="{{ step.onOpen }}" style="display:flex;align-items:center;gap:13px;text-align:left;width:100%;background:#FFFDF9;border:1px solid #ECE3D5;border-radius:16px;padding:14px;">
+              <sc-if value="{{ step.done }}" hint-placeholder-val="{{ false }}">
+                <div style="flex-shrink:0;width:38px;height:38px;border-radius:999px;background:#5E6B43;display:flex;align-items:center;justify-content:center;">
+                  <svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M3 9l3.5 3.5L14 4.5" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+              </sc-if>
+              <sc-if value="{{ step.pending }}" hint-placeholder-val="{{ true }}">
+                <div style="flex-shrink:0;width:38px;height:38px;border-radius:999px;background:#F4E4DA;border:1px solid #E7C9B7;display:flex;align-items:center;justify-content:center;font-family:'Bitter',serif;font-size:16px;font-weight:700;color:#9A4A2C;">{{ step.n }}</div>
+              </sc-if>
+              <div style="flex:1;min-width:0;">
+                <div style="font-family:'Bitter',serif;font-size:15.5px;font-weight:700;">{{ step.label }}</div>
+                <div style="font-size:12.5px;color:#8A7C6E;margin-top:2px;">{{ step.desc }}</div>
+              </div>
+              <sc-if value="{{ step.done }}" hint-placeholder-val="{{ false }}">
+                <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#5E6B43;font-weight:600;letter-spacing:.04em;">DONE</span>
+              </sc-if>
+              <sc-if value="{{ step.pending }}" hint-placeholder-val="{{ true }}">
+                <svg width="8" height="14" viewBox="0 0 8 14" style="flex-shrink:0;"><path d="M1 1l6 6-6 6" stroke="#C9BCAB" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </sc-if>
+            </button>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="margin:22px 20px 0;border-radius:18px;background:#2A6E66;color:#EAF1F0;padding:18px;">
+        <div style="display:flex;align-items:center;gap:14px;">
+          <div style="flex-shrink:0;width:48px;height:48px;border-radius:12px;background:#347F75;border:1px solid #3E948A;display:flex;align-items:center;justify-content:center;">
+            <svg width="28" height="28" viewBox="0 0 28 28"><path d="M3 18c0-8 22-8 22 0" fill="none" stroke="#EAF1F0" stroke-width="1.6"/><line x1="3" y1="18" x2="3" y2="23" stroke="#EAF1F0" stroke-width="1.6"/><line x1="25" y1="18" x2="25" y2="23" stroke="#EAF1F0" stroke-width="1.6"/><circle cx="11" cy="20" r="1.7" fill="#EAF1F0"/><circle cx="17" cy="20.6" r="1.3" fill="#EAF1F0"/></svg>
+          </div>
+          <div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.16em;color:#CFE8E3;font-weight:600;">BADGE 2 · THE BRIDGE BADGE</div>
+            <div style="font-family:'Bitter',serif;font-size:16px;font-weight:700;margin-top:2px;">Relationship Building &amp; Communication</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:9px;margin-top:16px;">
+          <sc-if value="{{ moduleComplete }}" hint-placeholder-val="{{ false }}">
+            <div style="width:30px;height:30px;border-radius:999px;background:#EAF1F0;display:flex;align-items:center;justify-content:center;"><svg width="14" height="14" viewBox="0 0 17 17" fill="none"><path d="M3 9l3.5 3.5L14 4.5" stroke="#2A6E66" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          </sc-if>
+          <sc-if value="{{ modulePending }}" hint-placeholder-val="{{ true }}">
+            <div style="width:30px;height:30px;border-radius:999px;border:2px solid #EAF1F0;color:#EAF1F0;display:flex;align-items:center;justify-content:center;font-family:'Bitter',serif;font-size:13px;font-weight:700;">4</div>
+          </sc-if>
+          <div style="flex:1;height:3px;border-radius:999px;background:#3E8478;"></div>
+          <div style="width:30px;height:30px;border-radius:999px;border:1.5px solid #4E948A;color:#9CC9C2;display:flex;align-items:center;justify-content:center;font-family:'Bitter',serif;font-size:13px;font-weight:700;">5</div>
+          <div style="flex:1;height:3px;border-radius:999px;background:#3E8478;"></div>
+          <div style="width:30px;height:30px;border-radius:999px;border:1.5px solid #4E948A;color:#9CC9C2;display:flex;align-items:center;justify-content:center;font-family:'Bitter',serif;font-size:13px;font-weight:700;">6</div>
+        </div>
+        <div style="font-size:12.5px;color:#A6CFC8;line-height:1.5;margin-top:12px;">Earn this badge by completing Weeks 4–6. You're on <b style="color:#EAF1F0;">Week 4</b>.</div>
+      </div>
+
+      <sc-if value="{{ streakShown }}" hint-placeholder-val="{{ true }}">
+      <div style="margin:14px 20px 0;background:#FFFDF9;border:1px solid #ECE3D5;border-radius:18px;padding:18px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;">
+          <div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.16em;color:#6E7A4E;font-weight:600;">ACCOUNTABILITY</div>
+            <div style="font-family:'Bitter',serif;font-size:16px;font-weight:700;margin-top:2px;">Partner check-ins</div>
+          </div>
+          <div style="font-family:'Bitter',serif;font-size:15px;font-weight:700;color:#5E6B43;">{{ checkins }}<span style="color:#B6AB9C;font-weight:600;"> / {{ streakGoal }}</span></div>
+        </div>
+        <div style="display:flex;gap:5px;margin-top:14px;">
+          <sc-for list="{{ streakPips }}" as="pip" hint-placeholder-count="8">
+            <sc-if value="{{ pip.filled }}" hint-placeholder-val="{{ false }}"><div style="flex:1;height:8px;border-radius:999px;background:#5E6B43;"></div></sc-if>
+            <sc-if value="{{ pip.empty }}" hint-placeholder-val="{{ true }}"><div style="flex:1;height:8px;border-radius:999px;background:#EBE1D2;"></div></sc-if>
+          </sc-for>
+        </div>
+        <div style="font-size:12.5px;color:#8A7C6E;line-height:1.5;margin-top:11px;">Log <b style="color:#5C5249;">{{ streakGoal }} check-ins</b> across the program to keep your Master Certificate on track.</div>
+        <button onClick="{{ logCheckin }}" style="margin-top:13px;width:100%;background:#5E6B43;color:#F6F4EC;font-weight:600;font-size:14px;border-radius:12px;padding:12px;">Log a check-in</button>
+
+        <div style="margin-top:16px;padding-top:16px;border-top:1px solid #ECE3D5;">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;color:#9A8C7E;font-weight:600;">THIS WEEK'S PARTNER ACTION</div>
+          <button onClick="{{ togglePartner }}" style="display:flex;align-items:flex-start;gap:11px;text-align:left;width:100%;margin-top:9px;">
+            <sc-if value="{{ partnerDone }}" hint-placeholder-val="{{ false }}">
+              <div style="flex-shrink:0;margin-top:1px;width:24px;height:24px;border-radius:7px;background:#5E6B43;display:flex;align-items:center;justify-content:center;"><svg width="13" height="13" viewBox="0 0 17 17" fill="none"><path d="M3 9l3.5 3.5L14 4.5" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            </sc-if>
+            <sc-if value="{{ partnerPending }}" hint-placeholder-val="{{ true }}">
+              <div style="flex-shrink:0;margin-top:1px;width:24px;height:24px;border-radius:7px;border:2px solid #D8CCBA;background:#fff;"></div>
+            </sc-if>
+            <div style="flex:1;font-size:13.5px;color:#5C5249;line-height:1.5;">Text your partner: <span style="color:#9A4A2C;font-style:italic;">"One win-win agreement I'm trying this week is ___."</span></div>
+          </button>
+        </div>
+      </div>
+      </sc-if>
+
+      <div style="padding:28px 20px 44px;text-align:center;">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:#A89A8B;">CHILDREN'S FUTURES · RESTORING MEN</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;color:#B8AB9C;margin-top:5px;">Program support — Consult Cadence Solutions</div>
+      </div>
+
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ stepIsWatch }}" hint-placeholder-val="{{ false }}">
+    <div style="padding:16px 20px 48px;">
+      <div style="position:relative;border-radius:16px;overflow:hidden;border:1px solid #ECE3D5;background:#2A2320;aspect-ratio:16/9;">
+        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;">
+          <div style="width:58px;height:58px;border-radius:999px;background:rgba(184,92,56,.95);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.35);">
+            <svg width="22" height="24" viewBox="0 0 22 24"><path d="M3 2.5l16 9.5-16 9.5V2.5z" fill="#fff"/></svg>
+          </div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.12em;color:rgba(255,255,255,.5);">VIDEO TO BE ADDED · 5:00</div>
+        </div>
+      </div>
+
+      <h2 style="font-family:'Bitter',serif;font-size:21px;line-height:1.2;font-weight:700;margin:18px 0 0;text-wrap:balance;">The Win-Win Dad: Building Agreements That Actually Stick</h2>
+      <div style="font-size:13.5px;color:#8A7C6E;margin-top:6px;">24/7 Dad — Habit 4 · Think Win-Win</div>
+
+      <div style="margin-top:18px;background:#FFFDF9;border:1px solid #ECE3D5;border-radius:14px;padding:16px;">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;color:#9A8C7E;font-weight:600;">IN THIS LESSON</div>
+        <div style="display:flex;flex-direction:column;gap:11px;margin-top:12px;">
+          <div style="display:flex;gap:11px;"><span style="flex-shrink:0;width:6px;height:6px;border-radius:999px;background:#B85C38;margin-top:7px;"></span><span style="font-size:14px;line-height:1.5;color:#4F463E;">What win-win means in fathering — it's <b>not</b> about giving in or giving up.</span></div>
+          <div style="display:flex;gap:11px;"><span style="flex-shrink:0;width:6px;height:6px;border-radius:999px;background:#B85C38;margin-top:7px;"></span><span style="font-size:14px;line-height:1.5;color:#4F463E;">The anatomy of a Win-Win Agreement: mutual respect + a shared outcome.</span></div>
+          <div style="display:flex;gap:11px;"><span style="flex-shrink:0;width:6px;height:6px;border-radius:999px;background:#B85C38;margin-top:7px;"></span><span style="font-size:14px;line-height:1.5;color:#4F463E;">How win-lose thinking teaches kids to compete instead of cooperate.</span></div>
+          <div style="display:flex;gap:11px;"><span style="flex-shrink:0;width:6px;height:6px;border-radius:999px;background:#B85C38;margin-top:7px;"></span><span style="font-size:14px;line-height:1.5;color:#4F463E;">Watch on YouTube: <span style="color:#9A4A2C;font-weight:600;">video link to be added by your facilitator.</span></span></div>
+        </div>
+      </div>
+
+      <sc-if value="{{ watchPending }}" hint-placeholder-val="{{ true }}">
+        <button onClick="{{ markWatch }}" style="margin-top:20px;width:100%;background:#B85C38;color:#FBF6EE;font-weight:600;font-size:15px;border-radius:13px;padding:15px;">Mark lesson as watched</button>
+      </sc-if>
+      <sc-if value="{{ watchDone }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top:20px;display:flex;align-items:center;gap:10px;background:#EAEEDD;border:1px solid #D2DBB6;border-radius:13px;padding:14px;">
+          <div style="width:26px;height:26px;border-radius:999px;background:#5E6B43;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="14" height="14" viewBox="0 0 17 17" fill="none"><path d="M3 9l3.5 3.5L14 4.5" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span style="font-size:14px;font-weight:600;color:#4C5538;">Lesson watched</span>
+        </div>
+        <button onClick="{{ back }}" style="margin-top:11px;width:100%;background:#2A2320;color:#F3ECE0;font-weight:600;font-size:14.5px;border-radius:13px;padding:14px;">Back to module</button>
+      </sc-if>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ stepIsReflect }}" hint-placeholder-val="{{ false }}">
+    <div style="padding:16px 20px 48px;">
+      <div style="background:#FFFDF9;border:1px solid #ECE3D5;border-radius:16px;padding:18px;">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;color:#9A4A2C;font-weight:600;">REFLECTION PROMPT</div>
+        <p style="font-size:16px;line-height:1.6;color:#3F372F;margin:12px 0 0;font-family:'Bitter',serif;font-weight:500;">Describe a current disagreement with your child's mother or your child. Who's <span style="color:#9A4A2C;">winning</span> right now? Who's losing? What would a genuinely win-win outcome look like — and what would you each need to give up to get there?</p>
+      </div>
+
+      <div style="margin-top:16px;">
+        <textarea value="{{ reflection }}" onChange="{{ onReflection }}" placeholder="Write as much or as little as you need. This stays private to you." style="width:100%;min-height:180px;background:#FFFDF9;border:1px solid #E4DACB;border-radius:14px;padding:15px;font-size:15px;line-height:1.6;color:#3F372F;outline:none;"></textarea>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-top:8px;padding:0 2px;">
+          <sc-if value="{{ reflectInvalid }}" hint-placeholder-val="{{ true }}"><span style="font-size:12px;color:#A89A8B;">A few honest sentences to mark this done</span></sc-if>
+          <sc-if value="{{ reflectValid }}" hint-placeholder-val="{{ false }}"><span style="font-size:12px;color:#5E6B43;font-weight:600;">Looks good — ready to save</span></sc-if>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#B6AB9C;">{{ reflectCount }}</span>
+        </div>
+      </div>
+
+      <sc-if value="{{ reflectValid }}" hint-placeholder-val="{{ false }}">
+        <button onClick="{{ saveReflect }}" style="margin-top:14px;width:100%;background:#B85C38;color:#FBF6EE;font-weight:600;font-size:15px;border-radius:13px;padding:15px;">Save reflection &amp; mark done</button>
+      </sc-if>
+      <sc-if value="{{ reflectInvalid }}" hint-placeholder-val="{{ true }}">
+        <button disabled style="margin-top:14px;width:100%;background:#E4DACB;color:#A89A8B;font-weight:600;font-size:15px;border-radius:13px;padding:15px;cursor:default;">Save reflection &amp; mark done</button>
+      </sc-if>
+    </div>
+  </sc-if>
+  <sc-if value="{{ stepIsWorkshop }}" hint-placeholder-val="{{ false }}">
+    <div style="padding:16px 20px 48px;">
+      <div style="display:flex;gap:8px;">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#6F6358;background:#FBF6EE;border:1px solid #E4DACB;border-radius:999px;padding:6px 11px;">IN PERSON</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#6F6358;background:#FBF6EE;border:1px solid #E4DACB;border-radius:999px;padding:6px 11px;">OR LIVE ZOOM</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#6F6358;background:#FBF6EE;border:1px solid #E4DACB;border-radius:999px;padding:6px 11px;">~60 MIN</span>
+      </div>
+      <p style="font-size:14.5px;color:#6B6057;line-height:1.55;margin:14px 0 0;">A live session with your cohort. Here's what to expect — come ready to share.</p>
+
+      <div style="margin-top:18px;display:flex;flex-direction:column;gap:11px;">
+        <div style="background:#FFFDF9;border:1px solid #ECE3D5;border-radius:14px;padding:15px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;"><div style="font-family:'Bitter',serif;font-size:15px;font-weight:700;">Check-in · Win or Lose?</div><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#A89A8B;">5 MIN</span></div>
+          <div style="font-size:13.5px;color:#7E7163;line-height:1.5;margin-top:5px;">The facilitator reads three short dad scenarios. Hold up a green card (win-win) or red card (win-lose) and explain your call.</div>
+        </div>
+        <div style="background:#FFFDF9;border:1px solid #ECE3D5;border-radius:14px;padding:15px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;"><div style="font-family:'Bitter',serif;font-size:15px;font-weight:700;">Core activity · Win-Win Agreement Workshop</div><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#A89A8B;">PAIRS</span></div>
+          <div style="font-size:13.5px;color:#7E7163;line-height:1.5;margin-top:5px;">In pairs, role-play a common tension — screen time, bedtime, visitation — and draft a Win-Win Agreement live using a shared template. Share it with the group.</div>
+        </div>
+        <div style="background:#F4E4DA;border:1px solid #E7C9B7;border-radius:14px;padding:15px;">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.12em;color:#9A4A2C;font-weight:600;">ACCOUNTABILITY PARTNER ACTION</div>
+          <div style="font-size:13.5px;color:#5C4A40;line-height:1.55;margin-top:6px;">Try one Win-Win Agreement with your child or co-parent this week. Report back: <span style="font-style:italic;color:#9A4A2C;">did it hold? what surprised you?</span></div>
+        </div>
+      </div>
+
+      <div style="margin-top:20px;">
+        <sc-if value="{{ workshopNotAttended }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;gap:10px;">
+            <button onClick="{{ setGoing }}" style="flex:1;font-weight:600;font-size:14px;border-radius:13px;padding:14px;border:1.5px solid #E4DACB;background:#FFFDF9;color:#5C5249;">
+              <sc-if value="{{ workshopGoing }}" hint-placeholder-val="{{ false }}"><span style="color:#9A4A2C;">✓ I'm going</span></sc-if>
+              <sc-if value="{{ workshopNotGoing }}" hint-placeholder-val="{{ true }}">I'm going</sc-if>
+            </button>
+            <button onClick="{{ setAttended }}" style="flex:1;font-weight:600;font-size:14px;border-radius:13px;padding:14px;background:#B85C38;color:#FBF6EE;">Mark attended</button>
+          </div>
+        </sc-if>
+        <sc-if value="{{ workshopDone }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;align-items:center;gap:10px;background:#EAEEDD;border:1px solid #D2DBB6;border-radius:13px;padding:14px;">
+            <div style="width:26px;height:26px;border-radius:999px;background:#5E6B43;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="14" height="14" viewBox="0 0 17 17" fill="none"><path d="M3 9l3.5 3.5L14 4.5" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <span style="font-size:14px;font-weight:600;color:#4C5538;">Workshop attended — nice work showing up</span>
+          </div>
+          <button onClick="{{ back }}" style="margin-top:11px;width:100%;background:#2A2320;color:#F3ECE0;font-weight:600;font-size:14.5px;border-radius:13px;padding:14px;">Back to module</button>
+        </sc-if>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ stepIsQuiz }}" hint-placeholder-val="{{ false }}">
+    <div style="padding:16px 20px 48px;">
+
+      <sc-if value="{{ quizSubmitted }}" hint-placeholder-val="{{ false }}">
+        <div style="border-radius:16px;padding:18px;margin-bottom:18px;background:#FFFDF9;border:1px solid #ECE3D5;display:flex;align-items:center;gap:15px;">
+          <sc-if value="{{ passed }}" hint-placeholder-val="{{ false }}">
+            <div style="flex-shrink:0;width:54px;height:54px;border-radius:999px;background:#5E6B43;display:flex;align-items:center;justify-content:center;"><svg width="26" height="26" viewBox="0 0 17 17" fill="none"><path d="M3 9l3.5 3.5L14 4.5" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div><div style="font-family:'Bitter',serif;font-size:18px;font-weight:700;color:#4C5538;">Passed — {{ scoreLabel }}</div><div style="font-size:13px;color:#7E7163;margin-top:2px;">You've got win-win thinking down.</div></div>
+          </sc-if>
+          <sc-if value="{{ failed }}" hint-placeholder-val="{{ true }}">
+            <div style="flex-shrink:0;width:54px;height:54px;border-radius:999px;background:#F4E4DA;border:1px solid #E7C9B7;display:flex;align-items:center;justify-content:center;font-family:'Bitter',serif;font-size:18px;font-weight:700;color:#9A4A2C;">{{ score }}</div>
+            <div><div style="font-family:'Bitter',serif;font-size:18px;font-weight:700;">Almost — {{ scoreLabel }}</div><div style="font-size:13px;color:#7E7163;margin-top:2px;">Review the answers below, then try again.</div></div>
+          </sc-if>
+        </div>
+      </sc-if>
+      <sc-if value="{{ quizNotSubmitted }}" hint-placeholder-val="{{ true }}">
+        <p style="font-size:14.5px;color:#6B6057;line-height:1.55;margin:0 0 18px;">Four quick questions on Habit 4. You need <b style="color:#5C5249;">{{ passMark }} of 4</b> to clear it — retake as many times as you like.</p>
+      </sc-if>
+
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <sc-for list="{{ questions }}" as="q" hint-placeholder-count="4">
+          <div style="background:#FFFDF9;border:1px solid #ECE3D5;border-radius:16px;padding:16px;">
+            <div style="display:flex;gap:9px;">
+              <span style="font-family:'Bitter',serif;font-size:14px;font-weight:700;color:#B85C38;">{{ q.num }}.</span>
+              <span style="font-size:15px;line-height:1.45;font-weight:600;color:#3F372F;">{{ q.q }}</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px;margin-top:13px;">
+              <sc-for list="{{ q.options }}" as="opt" hint-placeholder-count="4">
+                <button onClick="{{ opt.onPick }}" style="display:flex;align-items:center;gap:11px;text-align:left;width:100%;border-radius:11px;padding:12px 13px;font-size:14px;line-height:1.4;">
+                  <sc-if value="{{ opt.isIdle }}" hint-placeholder-val="{{ true }}"><span style="display:flex;align-items:center;gap:11px;width:100%;"><span style="flex-shrink:0;width:24px;height:24px;border-radius:7px;border:1.5px solid #D8CCBA;background:#fff;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#A89A8B;font-weight:600;">{{ opt.letter }}</span><span style="color:#4F463E;">{{ opt.text }}</span></span></sc-if>
+                  <sc-if value="{{ opt.isSelected }}" hint-placeholder-val="{{ false }}"><span style="display:flex;align-items:center;gap:11px;width:100%;"><span style="flex-shrink:0;width:24px;height:24px;border-radius:7px;background:#B85C38;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#fff;font-weight:600;">{{ opt.letter }}</span><span style="color:#3F372F;font-weight:600;">{{ opt.text }}</span></span></sc-if>
+                  <sc-if value="{{ opt.isCorrect }}" hint-placeholder-val="{{ false }}"><span style="display:flex;align-items:center;gap:11px;width:100%;"><span style="flex-shrink:0;width:24px;height:24px;border-radius:7px;background:#5E6B43;display:flex;align-items:center;justify-content:center;"><svg width="13" height="13" viewBox="0 0 17 17" fill="none"><path d="M3 9l3.5 3.5L14 4.5" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span style="color:#4C5538;font-weight:600;">{{ opt.text }}</span></span></sc-if>
+                  <sc-if value="{{ opt.isWrong }}" hint-placeholder-val="{{ false }}"><span style="display:flex;align-items:center;gap:11px;width:100%;"><span style="flex-shrink:0;width:24px;height:24px;border-radius:7px;background:#C0563A;display:flex;align-items:center;justify-content:center;"><svg width="11" height="11" viewBox="0 0 12 12"><path d="M2 2l8 8M10 2l-8 8" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg></span><span style="color:#9A4A2C;">{{ opt.text }}</span></span></sc-if>
+                </button>
+              </sc-for>
+            </div>
+            <sc-if value="{{ q.answeredRight }}" hint-placeholder-val="{{ false }}">
+              <div style="margin-top:11px;font-size:13px;line-height:1.5;color:#5C5249;background:#EAEEDD;border-radius:10px;padding:10px 12px;"><b style="color:#4C5538;">Right — </b>{{ q.explain }}</div>
+            </sc-if>
+            <sc-if value="{{ q.answeredWrong }}" hint-placeholder-val="{{ false }}">
+              <div style="margin-top:11px;font-size:13px;line-height:1.5;color:#5C5249;background:#F4E4DA;border-radius:10px;padding:10px 12px;">{{ q.explain }}</div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+
+      <sc-if value="{{ quizNotSubmitted }}" hint-placeholder-val="{{ true }}">
+        <sc-if value="{{ allAnswered }}" hint-placeholder-val="{{ false }}">
+          <button onClick="{{ submitQuiz }}" style="margin-top:18px;width:100%;background:#B85C38;color:#FBF6EE;font-weight:600;font-size:15px;border-radius:13px;padding:15px;">Check my answers</button>
+        </sc-if>
+        <sc-if value="{{ notAllAnswered }}" hint-placeholder-val="{{ true }}">
+          <button disabled style="margin-top:18px;width:100%;background:#E4DACB;color:#A89A8B;font-weight:600;font-size:15px;border-radius:13px;padding:15px;cursor:default;">Answer all 4 to continue</button>
+        </sc-if>
+      </sc-if>
+      <sc-if value="{{ quizSubmitted }}" hint-placeholder-val="{{ false }}">
+        <sc-if value="{{ passed }}" hint-placeholder-val="{{ false }}">
+          <button onClick="{{ back }}" style="margin-top:18px;width:100%;background:#2A2320;color:#F3ECE0;font-weight:600;font-size:14.5px;border-radius:13px;padding:15px;">Back to module</button>
+        </sc-if>
+        <sc-if value="{{ failed }}" hint-placeholder-val="{{ true }}">
+          <button onClick="{{ retakeQuiz }}" style="margin-top:18px;width:100%;background:#B85C38;color:#FBF6EE;font-weight:600;font-size:15px;border-radius:13px;padding:15px;">Try again</button>
+        </sc-if>
+      </sc-if>
+    </div>
+  </sc-if>
+  <sc-if value="{{ stepIsMilestone }}" hint-placeholder-val="{{ false }}">
+    <div style="padding:16px 20px 48px;">
+      <div style="background:#FFFDF9;border:1px solid #ECE3D5;border-radius:16px;padding:18px;">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;color:#9A4A2C;font-weight:600;">MILESTONE CHALLENGE</div>
+        <h2 style="font-family:'Bitter',serif;font-size:19px;font-weight:700;margin:9px 0 0;">Build a Win-Win Agreement</h2>
+        <p style="font-size:14px;color:#6B6057;line-height:1.55;margin:8px 0 0;">Pick one real tension with your child or co-parent. Name what each of you wants, then find the outcome you can both live with. Fill all four to earn the milestone.</p>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:12px;margin-top:16px;">
+        <div style="background:#FFFDF9;border:1px solid #ECE3D5;border-radius:14px;padding:15px;">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.12em;color:#9A8C7E;font-weight:600;">THE ISSUE</div>
+          <input value="{{ agIssue }}" onChange="{{ onAgIssue }}" placeholder="e.g. screen time on school nights" style="width:100%;margin-top:9px;background:transparent;border:none;border-bottom:1.5px solid #E4DACB;outline:none;font-size:15px;font-weight:600;color:#3F372F;padding:4px 0;" />
+        </div>
+        <div style="display:flex;gap:12px;">
+          <div style="flex:1;background:#FFFDF9;border:1px solid #ECE3D5;border-radius:14px;padding:15px;">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;color:#9A4A2C;font-weight:600;">WHAT YOU WANT</div>
+            <textarea value="{{ agYou }}" onChange="{{ onAgYou }}" placeholder="Your side…" style="width:100%;margin-top:9px;min-height:78px;background:transparent;border:none;outline:none;font-size:14px;line-height:1.5;color:#3F372F;"></textarea>
+          </div>
+          <div style="flex:1;background:#FFFDF9;border:1px solid #ECE3D5;border-radius:14px;padding:15px;">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;color:#2A6E66;font-weight:600;">WHAT THEY WANT</div>
+            <textarea value="{{ agThem }}" onChange="{{ onAgThem }}" placeholder="Their side…" style="width:100%;margin-top:9px;min-height:78px;background:transparent;border:none;outline:none;font-size:14px;line-height:1.5;color:#3F372F;"></textarea>
+          </div>
+        </div>
+        <div style="background:#EAF1F0;border:1px solid #C4DBD8;border-radius:14px;padding:15px;">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.12em;color:#2A6E66;font-weight:600;">THE SHARED WIN</div>
+          <div style="font-size:12px;color:#5E7A75;margin-top:3px;">The outcome you can both feel good about.</div>
+          <textarea value="{{ agWin }}" onChange="{{ onAgWin }}" placeholder="What you'll both agree to…" style="width:100%;margin-top:9px;min-height:78px;background:#F6FBFA;border:1px solid #CFE3E0;border-radius:10px;padding:11px;outline:none;font-size:14px;line-height:1.5;color:#26433F;"></textarea>
+        </div>
+      </div>
+
+      <sc-if value="{{ milestoneValid }}" hint-placeholder-val="{{ false }}">
+        <button onClick="{{ completeMilestone }}" style="margin-top:18px;width:100%;background:#B85C38;color:#FBF6EE;font-weight:600;font-size:15px;border-radius:13px;padding:15px;">Submit Win-Win Agreement</button>
+      </sc-if>
+      <sc-if value="{{ milestoneInvalid }}" hint-placeholder-val="{{ true }}">
+        <button disabled style="margin-top:18px;width:100%;background:#E4DACB;color:#A89A8B;font-weight:600;font-size:15px;border-radius:13px;padding:15px;cursor:default;">Fill all four to submit</button>
+      </sc-if>
+    </div>
+  </sc-if>
+  <!--STEPVIEWS-->
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:430,&quot;height&quot;:880},&quot;showStreak&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;passMark&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:3,&quot;min&quot;:1,&quot;max&quot;:4,&quot;tsType&quot;:&quot;number&quot;},&quot;streakGoal&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:8,&quot;min&quot;:4,&quot;max&quot;:12,&quot;tsType&quot;:&quot;number&quot;}}">
+class Component extends DCLogic {
+  constructor(props){ super(props); this.state = this.loadState(); }
+
+  loadState(){
+    const d = {
+      view:'home', activeStep:'watch',
+      done:{ watch:false, reflect:false, workshop:false, quiz:false, milestone:false },
+      reflection:'', workshop:'none',
+      quizAnswers:{}, quizSubmitted:false,
+      agreement:{ issue:'', you:'', them:'', win:'' },
+      checkins:0, partnerDone:false,
+    };
+    try { const raw = localStorage.getItem('cf_mod_2_1_v1'); if(raw){ return Object.assign(d, JSON.parse(raw)); } } catch(e){}
+    return d;
+  }
+  persist(){ try { localStorage.setItem('cf_mod_2_1_v1', JSON.stringify(this.state)); } catch(e){} }
+  componentDidUpdate(){ this.persist(); }
+  toTop(){ try { window.scrollTo(0,0); } catch(e){} }
+
+  questions(){
+    return [
+      { id:'q1', q:'Win-win thinking in fathering means…',
+        opts:['Giving in so the conflict ends','Finding an outcome that works for both you and your child','Making sure you come out ahead','Avoiding the disagreement altogether'],
+        correct:1, explain:'Win-win isn’t giving in or coming out ahead — it’s an outcome you both can live with.' },
+      { id:'q2', q:'What makes a Win-Win Agreement actually stick?',
+        opts:['One person quietly gives up','Mutual respect and a shared outcome','The loudest person decides','Keeping score for next time'],
+        correct:1, explain:'Agreements hold when both sides feel respected and own the outcome together.' },
+      { id:'q3', q:'When a dad models win-lose thinking at home, kids tend to learn to…',
+        opts:['Cooperate and share','Compete instead of cooperate','Trust more easily','Stay calm under stress'],
+        correct:1, explain:'Win-lose at home quietly teaches kids that someone always has to lose.' },
+      { id:'q4', q:'A disagreement with your co-parent broke down. The best win-win move is to…',
+        opts:['Win the next round to even it out','Find what you both actually want for your child','Go quiet until they apologize','Let the child decide'],
+        correct:1, explain:'Underneath most conflict, both parents want something for the child — start there.' },
+    ];
+  }
+
+  passMark(){ return this.props.passMark ?? 3; }
+  streakGoal(){ return this.props.streakGoal ?? 8; }
+
+  openStep(id){ this.setState({ view:'step', activeStep:id }); this.toTop(); }
+  back(){ this.setState({ view:'home' }); this.toTop(); }
+  markDone(id){ this.setState(s=>({ done: Object.assign({}, s.done, { [id]:true }) })); }
+
+  onReflection(e){ this.setState({ reflection: e.target.value }); }
+  saveReflect(){ if(this.state.reflection.trim().length>=40){ this.markDone('reflect'); this.back(); } }
+
+  setWorkshop(status){ this.setState({ workshop:status }, ()=>{ if(status==='attended') this.markDone('workshop'); }); }
+
+  pickAnswer(qid, idx){ if(this.state.quizSubmitted) return; this.setState(s=>({ quizAnswers: Object.assign({}, s.quizAnswers, { [qid]:idx }) })); }
+  scoreNow(){ let n=0; this.questions().forEach(q=>{ if(this.state.quizAnswers[q.id]===q.correct) n++; }); return n; }
+  submitQuiz(){ this.setState({ quizSubmitted:true }, ()=>{ if(this.scoreNow()>=this.passMark()) this.markDone('quiz'); this.toTop(); }); }
+  retakeQuiz(){ this.setState({ quizSubmitted:false, quizAnswers:{} }); this.toTop(); }
+
+  setAg(field, e){ const v=e.target.value; this.setState(s=>({ agreement: Object.assign({}, s.agreement, { [field]:v }) })); }
+  agreementValid(){ const a=this.state.agreement; return !!(a.issue.trim() && a.you.trim() && a.them.trim() && a.win.trim()); }
+  completeMilestone(){ if(this.agreementValid()){ this.markDone('milestone'); this.back(); } }
+
+  logCheckin(){ this.setState(s=>({ checkins: Math.min(this.streakGoal(), s.checkins+1) })); }
+  togglePartner(){ this.setState(s=>({ partnerDone: !s.partnerDone })); }
+
+  renderVals(){
+    const meta = {
+      watch:{ n:1, label:'Watch the lesson', desc:'5-min video · The Win-Win Dad' },
+      reflect:{ n:2, label:'Reflect', desc:'One honest journal prompt' },
+      workshop:{ n:3, label:'Workshop', desc:'In-person or live Zoom · 60 min' },
+      quiz:{ n:4, label:'Check your understanding', desc:'4 quick questions' },
+      milestone:{ n:5, label:'Milestone challenge', desc:'Build a real Win-Win Agreement' },
+    };
+    const order = ['watch','reflect','workshop','quiz','milestone'];
+    const done = this.state.done;
+    const steps = order.map(id=>{
+      const m = meta[id];
+      let statusLabel = 'To do';
+      if(id==='workshop' && this.state.workshop==='going') statusLabel = 'RSVP’d';
+      return { id, n:m.n, label:m.label, desc:m.desc, done:!!done[id], pending:!done[id], statusLabel, onOpen:()=>this.openStep(id) };
+    });
+    const doneCount = order.filter(id=>done[id]).length;
+    const C = 2*Math.PI*52;
+    const moduleComplete = doneCount===order.length;
+
+    const qs = this.questions();
+    const submitted = this.state.quizSubmitted;
+    const questions = qs.map((q,qi)=>{
+      const sel = this.state.quizAnswers[q.id];
+      return {
+        id:q.id, num:qi+1, q:q.q, explain:q.explain,
+        answeredWrong: submitted && sel!==q.correct,
+        answeredRight: submitted && sel===q.correct,
+        options: q.opts.map((t,i)=>{
+          let isCorrect=false, isWrong=false, isSelected=false, isIdle=false;
+          if(submitted){ if(i===q.correct) isCorrect=true; else if(i===sel) isWrong=true; else isIdle=true; }
+          else { if(i===sel) isSelected=true; else isIdle=true; }
+          return { text:t, letter:String.fromCharCode(65+i), isCorrect, isWrong, isSelected, isIdle, onPick:()=>this.pickAnswer(q.id,i) };
+        }),
+      };
+    });
+    const allAnswered = qs.every(q=>this.state.quizAnswers[q.id]!==undefined);
+    const sc = this.scoreNow();
+    const passed = sc>=this.passMark();
+
+    const ag = this.state.agreement;
+
+    const goal = this.streakGoal();
+    const streakPips = Array.from({length:goal}, (_,i)=>({ filled: i<this.state.checkins, empty: i>=this.state.checkins }));
+
+    const active = this.state.activeStep; const am = meta[active]||{n:'',label:''};
+    return {
+      isHome: this.state.view==='home', isStep: this.state.view==='step',
+      stepKicker: 'STEP '+am.n+' OF 5', stepTitle: am.label,
+      stepIsWatch: active==='watch', stepIsReflect: active==='reflect', stepIsWorkshop: active==='workshop', stepIsQuiz: active==='quiz', stepIsMilestone: active==='milestone',
+      back:()=>this.back(),
+
+      steps, doneCount,
+      ringDash:C, ringOffset:C*(1-doneCount/order.length),
+      moduleComplete, modulePending:!moduleComplete,
+
+      streakShown: this.props.showStreak ?? true,
+      checkins:this.state.checkins, streakGoal:goal, streakPips,
+      logCheckin:()=>this.logCheckin(),
+      partnerDone:this.state.partnerDone, partnerPending:!this.state.partnerDone, togglePartner:()=>this.togglePartner(),
+
+      watchDone:done.watch, watchPending:!done.watch, markWatch:()=>this.markDone('watch'),
+
+      reflection:this.state.reflection, onReflection:(e)=>this.onReflection(e),
+      reflectCount:this.state.reflection.trim().length, reflectValid:this.state.reflection.trim().length>=40,
+      reflectInvalid:this.state.reflection.trim().length<40, saveReflect:()=>this.saveReflect(), reflectDone:done.reflect,
+
+      workshop:this.state.workshop, workshopGoing:this.state.workshop==='going', workshopNotGoing:this.state.workshop!=='going', workshopAttended:this.state.workshop==='attended',
+      setGoing:()=>this.setWorkshop('going'), setAttended:()=>this.setWorkshop('attended'), workshopDone:done.workshop, workshopNotAttended:this.state.workshop!=='attended',
+
+      questions, quizSubmitted:submitted, quizNotSubmitted:!submitted, allAnswered, notAllAnswered:!allAnswered,
+      submitQuiz:()=>this.submitQuiz(), retakeQuiz:()=>this.retakeQuiz(),
+      score:sc, scoreLabel:sc+' of '+qs.length, passMark:this.passMark(), passed, failed:!passed, quizDone:done.quiz,
+
+      agIssue:ag.issue, agYou:ag.you, agThem:ag.them, agWin:ag.win,
+      onAgIssue:(e)=>this.setAg('issue',e), onAgYou:(e)=>this.setAg('you',e), onAgThem:(e)=>this.setAg('them',e), onAgWin:(e)=>this.setAg('win',e),
+      milestoneValid:this.agreementValid(), milestoneInvalid:!this.agreementValid(), completeMilestone:()=>this.completeMilestone(), milestoneDone:done.milestone,
+    };
+  }
+}
+</script>
+</body>
+</html>
